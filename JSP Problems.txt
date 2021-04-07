@@ -1,0 +1,681 @@
+Problem1:
+//Syntax.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/HandOn/Result.jsp">
+Text:<input type="text" name="name"><br/>
+<button type="submit">OK</button>
+</form>
+</body>
+</html>
+
+//Result.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%=request.getParameter("name") %> <br/>
+</body>
+</html>
+
+Problem2:
+//Syntax.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/HandOn/Result1.jsp">
+Text:<input type="text" name="name"><br/>
+<button type="submit">OK</button>
+</form>
+</body>
+</html>
+
+//Result.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<% String text=request.getParameter("name");
+out.println(text);
+%> <br/>
+</body>
+</html>
+
+Problem3:
+//Syntax.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%! int i =1; %>
+<%
+    out.println("You are visiting the page for: "+i+++"time");
+%>
+
+</body>
+</html>
+
+Problem4:
+//PerformTask.java
+package com.pack;
+
+public class PerformTask {
+	
+	public void doTask() {
+		System.out.println("Hello World");
+	}
+
+}
+
+//Result.jsp
+<%@page import="com.pack.PerformTask"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+  PerformTask pt = new PerformTask();
+  pt.doTask();
+%>
+</body>
+</html>
+
+Problem5:
+//Page.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" page session = "false"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%pageContext.setAttribute("age","22",PageContext.SESSION_SCOPE); %>
+<%=pageContext.getAttribute("age",PageContext.SESSION_SCOPE) %>
+</body>
+</html>
+
+Problem6:
+//Page.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="Error.jsp"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%! int i=10; %>
+<% int j=i/0; %>
+
+</body>
+</html>
+
+//Error.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isErrorPage="true"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%= exception %><br/>
+<%= exception.getMessage() %>
+
+</body>
+</html>
+
+Problem7:
+//Input.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/HandOn/Age.jsp">
+Enter Age:<input type="text" name="age"><br/>
+<button type="submit" value="Submit">Submit</button>
+</form>
+</body>
+</html>
+
+//Age.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Age Number</title>
+</head>
+<body>
+<%! String ch; %>
+<%   ch=request.getParameter("age");
+         
+           switch(ch)
+            {
+                case "0": out.println("Zero  ");break;
+                case "1": out.println("One  ");break;
+                case "2": out.println("Two  ");break;
+                case "3": out.println("Three  ");break;
+                case "4": out.println("Four ");break;
+                case "5": out.println("Five  ");break;
+                case "6": out.println("Six  ");break;
+                case "7": out.println("Seven  ");break;
+                case "8": out.println("Eight  ");break;
+                case "9": out.println("Nine  ");break;
+                case "10": out.println("Ten  ");break;
+                case "11": out.println("Eleven  ");break;
+                case "12": out.println("Twelve  ");break;
+                case "13": out.println("Thirteen  ");break;
+                case "14": out.println("Fourteen  ");break;
+                case "15": out.println("Fifteen ");break;
+                case "16": out.println("Sixteen  ");break;
+                case "17": out.println("Seventeen  ");break;
+                case "18": out.println("Eighteen  ");break;
+                case "19": out.println("Nineteen  ");break;
+                case "20": out.println("Twenty  ");break;
+                case "21": out.println("Twenty One  ");break;
+                case "22": out.println("Twenty Two  ");break;
+                case "23": out.println("Twenty Three  ");break;
+                case "24": out.println("Twenty Four ");break;
+                case "25": out.println("Twenty Five  ");break;
+                case "26": out.println("Twenty Six  ");break;
+                case "27": out.println("Twenty Seven  ");break;
+                case "28": out.println("Twenty Eight  ");break;
+                case "29": out.println("Twenty Nine  ");break;
+                case "30": out.println("Thirty  ");break;
+                case "31": out.println("Thirty One  ");break;
+                case "32": out.println("Thirty Two  ");break;
+                case "33": out.println("Thirty Three  ");break;
+                case "34": out.println("Thirty Four  ");break;
+                case "35": out.println("Thirty Five ");break;
+                case "36": out.println("Thirty Six  ");break;
+                case "37": out.println("Thirty Seven  ");break;
+                case "38": out.println("Thirty Eight  ");break;
+                case "39": out.println("Thirty Nine  ");break;
+                case "40": out.println("Forty  ");break;
+                case "41": out.println("Forty One  ");break;
+                case "42": out.println("Forty Two  ");break;
+                case "43": out.println("Forty Three  ");break;
+                case "44": out.println("Forty Four ");break;
+                case "45": out.println("Forty Five  ");break;
+                case "46": out.println("Forty Six  ");break;
+                case "47": out.println("Forty Seven  ");break;
+                case "48": out.println("Forty Eight  ");break;
+                case "49": out.println("Forty Nine  ");break;
+                case "50": out.println("Fifty  ");break;
+                case "51": out.println("Fifty One  ");break;
+                case "52": out.println("Fifty Two  ");break;
+                case "53": out.println("Fifty Three  ");break;
+                case "54": out.println("Fifty Four  ");break;
+                case "55": out.println("Fifty Five ");break;
+                case "56": out.println("Fifty Six  ");break;
+                case "57": out.println("Fifty Seven  ");break;
+                case "58": out.println("Fifty Eight  ");break;
+                case "59": out.println("Fifty Nine  ");break;
+                case "60": out.println("Sixty  ");break;
+                case "61": out.println("Sixty One  ");break;
+                case "62": out.println("Sixty Two  ");break;
+                case "63": out.println("Sixty Three  ");break;
+                case "64": out.println("Sixty Four  ");break;
+                case "65": out.println("Sixty Five ");break;
+                case "66": out.println("Sixty Six  ");break;
+                case "67": out.println("Sixty Seven  ");break;
+                case "68": out.println("Sixty Eight  ");break;
+                case "69": out.println("Sixty Nine  ");break;
+                case "70": out.println("Seventy  ");break;
+                case "71": out.println("Seventy One  ");break;
+                case "72": out.println("Seventy Two  ");break;
+                case "73": out.println("Seventy Three  ");break;
+                case "74": out.println("Seventy Four ");break;
+                case "75": out.println("Seventy Five  ");break;
+                case "76": out.println("Seventy Six  ");break;
+                case "77": out.println("Seventy Seven  ");break;
+                case "78": out.println("Seventy Eight  ");break;
+                case "79": out.println("Seventy Nine  ");break;
+                case "80": out.println("Eighty  ");break;
+                case "81": out.println("Eighty One  ");break;
+                case "82": out.println("Eighty Two  ");break;
+                case "83": out.println("Eighty Three  ");break;
+                case "84": out.println("Eighty Four  ");break;
+                case "85": out.println("Eighty Five ");break;
+                case "86": out.println("Eighty Six  ");break;
+                case "87": out.println("Eighty Seven  ");break;
+                case "88": out.println("Eighty Eight  ");break;
+                case "89": out.println("Eighty Nine  ");break;
+                case "90": out.println("Ninety  ");break;
+                case "91": out.println("Ninety One  ");break;
+                case "92": out.println("Ninety Two  ");break;
+                case "93": out.println("Ninety Three  ");break;
+                case "94": out.println("Ninety Four  ");break;
+                case "95": out.println("Ninety Five ");break;
+                case "96": out.println("Ninety Six  ");break;
+                case "97": out.println("Ninety Seven  ");break;
+                case "98": out.println("Ninety Eight  ");break;
+                case "99": out.println("Ninety Nine  ");break;
+                case "100": out.println("One Hundred  ");break;
+                
+                default:out.println("Invalid Number");break;     
+               
+           }
+%>
+</body>
+</html>
+
+Problem8:
+//Car.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<img src="C:\Users\ELCOT\Downloads\HCL\JSP\Benz.jpg" width="100" height="100"/>
+<center><h1>Mercedes Benz</h1></center>
+</body>
+</html>
+
+//Car1.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@ include file="Car.jsp" %>
+<p>This is Car Page</p>
+</body>
+</html>
+
+//Car2.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@ include file="Car.jsp" %>
+<p>This is Another Car Page</p>
+</body>
+</html>
+
+Problem9:
+//Wonders.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" import="java.io.*,java.util.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%
+    Integer hitsCount =(Integer)application.getAttribute("hitCounter");
+    if( hitsCount ==null || hitsCount == 0 ){
+       hitsCount = 1;
+    }else{
+       hitsCount += 1;
+    }
+    application.setAttribute("hitCounter", hitsCount);
+%>
+</body>
+</html>
+
+//ViewCount.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<%@ include file="Wondes.jsp" %>
+<p>Total number of visits: <%= hitsCount%></p>
+</body>
+</html>
+
+Problem10:
+//User.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/HandOn/Display.jsp">
+User Name:<input type="text" name="name"><br/>
+<button type="submit">OK</button>
+</form>
+</body>
+</html>
+
+//Display.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<% String text=request.getParameter("name");
+out.println(text);
+%> <br/>
+</body>
+</html>
+
+Problem11:
+//User.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="http://localhost:8080/HandOn/Database.jsp">
+User Name:<input type="text" name="name"><br/>
+<button type="submit">OK</button>
+</form>
+</body>
+</html>
+
+//Database.jsp
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%! Connection con=null;Statement st;ResultSet rs;%>	
+<% 
+String name=request.getParameter("name");
+try 
+{ 
+
+Class.forName("com.mysql.jdbc.Driver"); 
+con=DriverManager.getConnection("jdbc:mysql://localhost:3306/handson","root","logan1704"); 
+st=con.createStatement(); 
+rs=st.executeQuery("SELECT Age from NAME where Name='"+name+"'"); 
+
+} 
+catch(Exception e) 
+{ 
+	out.println("did not Connect") ;
+} 
+%> 
+
+</body>
+</html>
+
+Problem12:
+//Retrive.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%= application.getInitParameter("email") %>
+</body>
+</html>
+
+
+//Web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>J2EEProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+	<context-param>
+		<param-name>
+			email
+		</param-name>
+		<param-value>
+			loganathan1704@gmail.com
+		</param-value>
+	</context-param>
+
+</web-app>
+
+Problem13:
+//Dept.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%= config.getInitParameter("department") %><br/>
+</body>
+</html>
+
+
+//web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>MyFirstEEProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+
+
+	<servlet>
+		<servlet-name>Problem13</servlet-name>
+		<jsp-file>/Problem13.jsp</jsp-file>
+		<init-param>
+			<param-name>department</param-name>
+			<param-value>CSE</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+
+	   <servlet-name>Problem13</servlet-name>
+	   <url-pattern>/Problem13.jsp</url-pattern>
+
+	</servlet-mapping>
+</web-app>
+
+Problem14:
+//Error.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" errorPage="Exception.jsp"  %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<%! int i=10; %>
+	<% int j=i/0; %>
+</body>
+</html>
+
+//Exception.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1" isErrorPage="true" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<%= exception %> <br/>
+
+<%= exception.getMessage() %>
+
+</body>
+</html>
+
+Problem15:
+//Input1.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="http://localhost:8086/MyJ2EEProject/Forward">
+		Name: <input type="text" name="username"> <br/>
+		<input type="submit" value="Submit">
+	</form>
+</body>
+</html>
+
+//Forward.java
+package com.pack;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class Forward
+ */
+@WebServlet("/Forward")
+public class Problem15 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public Forward() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html");
+
+        PrintWriter pw=response.getWriter();
+
+        RequestDispatcher rd = request.getRequestDispatcher("Name.jsp");
+		rd.forward(request,response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+}
+
+
+//Name.jsp
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	User Name: <%=  request.getParameter("username") %><br/>
+</body>
+</html>
+
